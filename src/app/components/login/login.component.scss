@@ -1,0 +1,21 @@
+.login-reg {
+  display: flex;
+  .login {
+    width: 50%;
+  }
+  form {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-direction: column;
+  }
+  .reg {
+    width: 50%;
+  }
+}
+
+.error {
+  color: red;
+}

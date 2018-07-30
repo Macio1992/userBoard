@@ -1,0 +1,42 @@
+<div class="login-reg">
+  <div class="login">
+    <h1>Logowanie</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+      <label for="username">Username</label>
+      <input type="text" formControlName="username" placeholder="Username">
+      <div class="error" *ngIf="loginForm.get('username').hasError('required') && loginForm.get('username').dirty">
+        Musisz wpisać username
+      </div>
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" placeholder="Password">
+      <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty">
+          Musisz wpisać password
+      </div>
+      <input [disabled]="!loginForm.valid" type="submit" value="Login">
+      <div class="error">{{ error }}</div>
+    </form>
+
+  </div>
+  <div class="reg">
+      <h1>Rejestracja</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
+      <label for="username">Username</label>
+      <input type="text" formControlName="username" placeholder="Username">
+      <div class="error" *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').dirty">
+        Musisz wpisać username
+      </div>
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" placeholder="Password">
+      <div class="error" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').dirty">
+        Musisz wpisać password
+      </div>
+      <div class="error" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').dirty">
+        Password musi byc dluzsze niz 6
+      </div>
+      <div class="error" *ngIf="registerForm.get('password').hasError('pattern') && registerForm.get('password').dirty">
+        Pass powinno mieć jeden znak specj.
+      </div>
+      <input [disabled]="!registerForm.valid" type="submit" value="Register">
+    </form>
+  </div>
+</div>
